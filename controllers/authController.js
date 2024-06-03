@@ -1,117 +1,117 @@
-import userModel from "../models/userModel.js";
-import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
-import JWT from "jsonwebtoken";
+import userModel from '../models/userModel.js';
+import { comparePassword, hashPassword } from './../helpers/authHelper.js';
+import JWT from 'jsonwebtoken';
 
 export const registerController = async (req, res) => {
   try {
     const { name, email, password, phone, address } = req.body;
-    //validations
+    // validations
     if (!name) {
-      return res.send({ error: "Name is Required" });
+      return res.send({ error: 'Name is Required' });
     }
     if (!email) {
-      return res.send({ error: "Email is Required" });
+      return res.send({ error: 'Email is Required' });
     }
     if (!password) {
-      return res.send({ error: "Password is Required" });
+      return res.send({ error: 'Password is Required' });
     }
     if (!phone) {
-      return res.send({ error: "Phone no is Required" });
+      return res.send({ error: 'Phone no is Required' });
     }
     if (!address) {
-      return res.send({ error: "Address is Required" });
+      return res.send({ error: 'Address is Required' });
     }
-    //check user
+    // check user
     const exisitingUser = await userModel.findOne({ email });
-    //exisiting user
+    // exisiting user
     if (exisitingUser) {
       return res.status(200).send({
         success: true,
-        message: "Already Register please login",
+        message: 'Already Register please login'
       });
     }
-    //register user
+    // register user
     const hashedPassword = await hashPassword(password);
-    //save
+    // save
     const user = await new userModel({
       name,
       email,
       phone,
       address,
-      password: hashedPassword,
+      password: hashedPassword
     }).save();
 
     res.status(201).send({
       success: true,
-      message: "User Register Successfully",
-      user,
+      message: 'User Register Successfully',
+      user
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Errro in Registeration",
-      error,
+      message: 'Errro in Registeration',
+      error
     });
   }
 };
 
-//POST LOGIN
+// POST LOGIN
 export const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
-    //validation
+    // validation
     if (!email || !password) {
       return res.status(404).send({
         success: false,
-        message: "Invalid email or password",
+        message: 'Invalid email or password'
       });
     }
-    //check user
+    // check user
     const user = await userModel.findOne({ email });
     if (!user) {
       return res.status(404).send({
         success: false,
-        message: "Email is not registerd",
+        message: 'Email is not registerd'
       });
     }
     const match = await comparePassword(password, user.password);
     if (!match) {
       return res.status(200).send({
         success: false,
-        message: "Invalid Password",
+        message: 'Invalid Password'
       });
     }
-    //token
+    // token
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: '7d'
     });
     res.status(200).send({
       success: true,
-      message: "login successfully",
+      message: 'login successfully',
       user: {
         _id: user._id,
         name: user.name,
         email: user.email,
         phone: user.phone,
-        adddress: user.address,
+        adddress: user.address
       },
-      token,
+      token
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in login",
-      error,
+      message: 'Error in login',
+      error
     });
   }
 };
 
-//test controller
+// test controller
 export const testController = (req, res) => {
   try {
-    res.send("Protected Routes");
+    res.send('Protected Routes');
   } catch (error) {
     console.log(error);
     res.send({ error });
