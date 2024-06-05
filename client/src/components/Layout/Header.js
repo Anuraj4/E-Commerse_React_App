@@ -1,13 +1,11 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { FaBasketShopping } from "react-icons/fa6";
-
 
 const Header = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand"><FaBasketShopping /> E-Commerce App</Link>
+        <Link className="navbar-brand">🛍️ E-Commerce App</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
