@@ -5,12 +5,12 @@ import { Helmet } from "react-helmet";
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster } from 'react-hot-toast';
 
-const Layout = ({ 
-  children, 
-  title = 'E-Commerce app - Shop Now', 
-  description = 'React MERN Project', 
-  keywords = 'mern,react,ecommerce,node,mongoDB', 
-  author = 'Anuraj Venkatpurwar' 
+const Layout = ({
+  children,
+  title = 'E-Commerce app - Shop Now',
+  description = 'React MERN Project',
+  keywords = 'mern,react,ecommerce,node,mongoDB',
+  author = 'Anuraj Venkatpurwar'
 }) => {
   return (
     <div>
