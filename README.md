@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-fledged eCommerce website built using the MERN stack (MongoDB, Express.js, React, Node.js). The website allows users to browse products, add them to their cart, and proceed to checkout. Admin users can manage products, categories, and orders.
+This is a full-fledged E-Commerce website built using the MERN stack (MongoDB, Express.js, React, Node.js). The website allows users to browse products, add them to their cart, and proceed to checkout. Admin users can manage products, categories, and orders.
 
 ## Table of Contents
 
@@ -10,10 +10,11 @@ This is a full-fledged eCommerce website built using the MERN stack (MongoDB, Ex
 - [Features](#features)
 - [Demo](#demo)
 - [Installation](#installation)
+- [Languages and Tools](#Languages&tools)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
+- [Contributing](#Contribution)
+- [License](#License)
 - [Contact](#contact)
 
 ## Features
@@ -63,6 +64,33 @@ npm run dev
 
 - [React](https://reactjs.org/)
 
+
+## Usage
+
+1) Browse products by category
+2) Search for products
+3) View product details
+4) Add products to the cart
+5) Checkout and place orders
+
+## Api-Documentation
+
+-The API documentation can be found here.
+
+
+## Contribution
+
+-We welcome contributions to this project! To contribute:
+
+1) Fork the repository.
+2) Create a new branch: git checkout -b feature/your-branch-name.
+3) Make your changes and commit them: git commit -m 'Add some feature'.
+4) Push to the branch: git push origin feature/your-branch-name.
+5) Submit a pull request.
+
+## License
+
+-This project is licensed under the MIT License. See the LICENSE file for details.
 
 
 
