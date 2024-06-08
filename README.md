@@ -38,4 +38,33 @@ To run this project locally, follow these steps:
 Clone the repository from GitHub to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/ecommerce-website.git
+git clone https://github.com/Anuraj4/E-Commerse_React_App
+
+```
+Cd project
+
+```
+cd E-Commerse_React_App
+
+```
+Run the project( Running Both Servers )
+```
+npm run dev
+
+```
+
+## Languages & tools
+
+- [Node](https://nodejs.org/en/)
+
+- [Express](https://expressjs.com/)
+
+- [Mongoose](https://mongoosejs.com/)
+
+- [React](https://reactjs.org/)
+
+
+
+
+
+
