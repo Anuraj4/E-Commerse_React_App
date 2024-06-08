@@ -79,17 +79,17 @@ npm run dev
 
 1) For User
    
-  -🛍️ Browse products by category
-  -🔍 Search for products
-  -📄 View product details
-  -🛒 Add products to the cart
-  -💳 Checkout and place orders
+  1) 🛍️ Browse products by category
+  2) 🔍 Search for products
+  3) 📄 View product details
+  4) 🛒 Add products to the cart
+  5) 💳 Checkout and place orders
 
 3) For admin
   
-  -📝 Manage products (add, edit, delete)
-  -📂 Manage orders
-  -👤 View user information
+  1) 📝 Manage products (add, edit, delete)
+  2) 📂 Manage orders
+  3) 👤 View user information
 
 
 ## Api-Documentation
