@@ -1,5 +1,19 @@
 # E-Commerce Website
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Languages and Tools](#Languages&tools)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Contributing](#Contribution)
+- [License](#License)
+- [Contact](#contact)
+
+
 ## Overview
 
 Welcome to the **E-Commerce Website**! This project is a comprehensive online shopping platform built using the powerful **MERN stack** (MongoDB, Express.js, React, Node.js). The website provides a seamless shopping experience where users can:
@@ -14,18 +28,6 @@ For admin users, the platform offers robust management features to:
 - 📂 **Manage Categories**: Organize products into categories.
 - 📑 **Manage Orders**: Track and process customer orders.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Demo](#demo)
-- [Installation](#installation)
-- [Languages and Tools](#Languages&tools)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#Contribution)
-- [License](#License)
-- [Contact](#contact)
 
 ## Features
 
