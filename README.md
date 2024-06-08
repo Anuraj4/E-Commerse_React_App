@@ -29,12 +29,12 @@ For admin users, the platform offers robust management features to:
 
 ## Features
 
-- User authentication and authorization
-- Product listing and search
-- Shopping cart functionality
-- Order management
-- Admin panel for managing products and orders
-- Responsive design
+- 🔒 User authentication and authorization
+- 🔍 Product listing and search
+- 🛒 Shopping cart functionality
+- 📦 Order management
+- ⚙️ Admin panel for managing products and orders
+- 📱 Responsive design
 
 ## Demo
 
@@ -77,11 +77,20 @@ npm run dev
 
 ## Usage
 
-1) Browse products by category
-2) Search for products
-3) View product details
-4) Add products to the cart
-5) Checkout and place orders
+1) For User
+   
+  -🛍️ Browse products by category
+  -🔍 Search for products
+  -📄 View product details
+  -🛒 Add products to the cart
+  -💳 Checkout and place orders
+
+3) For admin
+  
+  -📝 Manage products (add, edit, delete)
+  -📂 Manage orders
+  -👤 View user information
+
 
 ## Api-Documentation
 
@@ -92,11 +101,11 @@ npm run dev
 
 -We welcome contributions to this project! To contribute:
 
-1) Fork the repository.
-2) Create a new branch: git checkout -b feature/your-branch-name.
-3) Make your changes and commit them: git commit -m 'Add some feature'.
-4) Push to the branch: git push origin feature/your-branch-name.
-5) Submit a pull request.
+1) 🍴 Fork the repository.
+2) 🌿 Create a new branch: git checkout -b feature/your-newBranch-name.
+3) 💻 Make your changes and commit them: git commit -m 'Add some feature'.
+4) 📤 Push to the branch: git push origin feature/your-newBranch-name.
+5) 🔁 Submit a pull request.
 
 ## License
 
@@ -104,10 +113,9 @@ npm run dev
 
 ## Contact
 
-1) Email: [click](anurajvenkatpurwar@gmail.com).
-2) LinkedIn: [Connect](https://www.linkedin.com/in/anuraj-venkatpurwar/)
-3) Instagram: [Follow](https://www.instagram.com/a_n_u_r_a_j_70/)
-
+1) 📧Email: [click](anurajvenkatpurwar@gmail.com).
+2) 💼LinkedIn: [Connect](https://www.linkedin.com/in/anuraj-venkatpurwar/)
+3) 📸Instagram: [Follow](https://www.instagram.com/a_n_u_r_a_j_70/)
 
 
 
