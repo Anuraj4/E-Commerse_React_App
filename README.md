@@ -38,5 +38,4 @@ To run this project locally, follow these steps:
 ```bash
 git clone https://github.com/Anuraj4/ecommerce-website.git
 
-cd ecommerce-website
 
