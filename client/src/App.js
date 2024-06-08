@@ -7,8 +7,8 @@ import Contact from './pages/Contact';
 import Register from './pages/Auth/Register';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './pages/Auth/Login';
-import Dashboard from './pages/Auth/Dashboard';
 import PrivateRoute from './components/Routes/Private';
+import Dashboard from './pages/user/Dashboard';
 
 function App() {
   return (
