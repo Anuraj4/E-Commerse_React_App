@@ -113,7 +113,7 @@ npm run dev
 
 ## Contact
 
-1) 📧Email: [click](anurajvenkatpurwar@gmail.com).
+1) 📧Email: [click](anurajvenkatpurwar@gmail.com)
 2) 💼LinkedIn: [Connect](https://www.linkedin.com/in/anuraj-venkatpurwar/)
 3) 📸Instagram: [Follow](https://www.instagram.com/a_n_u_r_a_j_70/)
 
