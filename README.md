@@ -77,7 +77,7 @@ npm run dev
 
 ## Usage
 
-# 1) For User
+### 1) For User
    
   1) 🛍️ Browse products by category
   2) 🔍 Search for products
@@ -85,7 +85,7 @@ npm run dev
   4) 🛒 Add products to the cart
   5) 💳 Checkout and place orders
 
-# 2) For admin
+### 2) For admin
   
   1) 📝 Manage products (add, edit, delete)
   2) 📂 Manage orders
