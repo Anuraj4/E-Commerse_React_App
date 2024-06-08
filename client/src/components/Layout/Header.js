@@ -5,9 +5,9 @@ import toast from 'react-hot-toast'
 
 const Header = () => {
   const [auth, setAuth] = useAuth()
-  const handleLogout= () => {
+  const handleLogout = () => {
     setAuth({
-      ...auth, user:null,token:''
+      ...auth, user: null, token: ''
     })
     localStorage.removeItem('auth');
     toast.success('Logout Successfully')
@@ -37,8 +37,14 @@ const Header = () => {
                 </li>
 
               </>) : (<>
-                <li className="nav-item">
-                  <NavLink onClick={handleLogout} to="/login" className="nav-link" >Logout</NavLink>
+                <li className="nav-item dropdown">
+                  <NavLink className="nav-link dropdown-toggle" href="#" role='button' data-bs-toggle='dropdown' aria-expanded="false">
+                    {auth?.user?.name}
+                  </NavLink>
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><NavLink to='/dashboard' className="dropdown-item">Dashboard</NavLink></li>
+                    <li><NavLink onClick={handleLogout} to="/login" className="dropdown-item" >Logout</NavLink></li>
+                  </ul>
                 </li>
               </>)
             }
