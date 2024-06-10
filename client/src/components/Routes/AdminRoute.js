@@ -10,21 +10,28 @@ export default function AdminRoute() {
 
     useEffect(() => {
         const authCheck = async () => {
-            try {
-                const res = await axios.get('/api/v1/auth/admin-auth', {
-                    headers: {
-                        'Authorization': `Bearer ${auth.token}`
-                    }
-                });
-                if (res.data.ok) {
-                    setOk(true);
-                } else {
-                    setOk(false);
-                }
-            } catch (err) {
-                console.error(err);
+            const res = await axios.get('/api/v1/auth/admin-auth');
+            if(res.data.ok){
+                setOk(true);
+            }else{
                 setOk(false);
             }
+        //     try {
+        //         const res = await axios.get('/api/v1/auth/admin-auth', {
+        //             headers: {
+        //                 'Authorization': `Bearer ${auth.token}`
+        //             }
+        //         });
+        //         if (res.data.ok) {
+        //             setOk(true);
+        //         } else {
+        //             setOk(false);
+        //         }
+        //     } catch (err) {
+        //         console.error(err);
+        //         setOk(false);
+        //     }
+        // };
         };
         if (auth?.token) authCheck();
     }, [auth?.token]);
