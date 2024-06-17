@@ -12,6 +12,7 @@ const Users = () => {
                     </div>
                     <div className='col-md-9'>
                         <h1>All Users</h1>
+                        <h2>This is Users Page</h2>
                     </div>
                 </div>
             </div>
