@@ -9,6 +9,20 @@ const CartPage = () => {
     const [cart, setCart] = useCart();
     const navigate = useNavigate()
 
+    //Total price
+    const totalPrice = () => {
+        try {
+            let total = 0;
+            cart?.map((item) => {total = total + item.price});
+            return total.toLocaleString('en-US', {
+                style:'currency',
+                currency:'USD'
+            });
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     // remove item
     const removeCartItem = (pid) => {
         try {
@@ -16,6 +30,7 @@ const CartPage = () => {
             let index = myCart.findIndex(item => item._id === pid)
             myCart.splice(index, 1)
             setCart(myCart);
+            localStorage.setItem('cart', JSON.stringify(myCart))
         } catch (error) {
             console.log(error)
         }
@@ -27,14 +42,12 @@ const CartPage = () => {
                     <div className='col-md-12'>
                         <h1 className='text-center bg-light p-2 mb-1'>
                             {`Hello ${auth?.token && auth?.user?.name}`}
-
                         </h1>
                         <h4 className='text-center'>
-                            {cart?.length > 1
+                            {cart?.length
                                 ? `You have ${cart.length} items in your cart ${auth?.token ? '' : '. Please login to checkout'}`
                                 : 'Your cart is empty'
                             }
-
                         </h4>
                     </div>
                 </div>
@@ -52,14 +65,19 @@ const CartPage = () => {
                                         <p>{p.name}</p>
                                         <p>{p.description.substring(0, 30)}</p>
                                         <p>Price: {p.price}</p>
-                                        <button className='btn btn-danger' onClick={()=> removeCartItem(p._id)}>Remove</button>
+                                        <button className='btn btn-danger' onClick={() => removeCartItem(p._id)}>Remove</button>
                                     </div>
                                 </div>
                             ))
                         }
                     </div>
-                    <div className='col-md-4'>
-                        Checkout | Payment
+                    <div className='col-md-4 text-center'>
+                        <h2>Cart Summary</h2>
+                        <p>Total | Checkout | Payment</p>
+                        <hr />
+                        <h4>
+                            Total: {totalPrice()}
+                        </h4>
                     </div>
                 </div>
             </div>
