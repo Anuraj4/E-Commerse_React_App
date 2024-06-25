@@ -60,14 +60,14 @@ const HomePage = () => {
     }
   };
   useEffect(() => {
-    if(page === 1) return;
+    if (page === 1) return;
     loadMore();
-  },[page]);
+  }, [page]);
 
-  const loadMore = async() => {
+  const loadMore = async () => {
     try {
       setLoading(true)
-      const {data} = await axios.get(`/api/v1/product/product-list/${page}`)
+      const { data } = await axios.get(`/api/v1/product/product-list/${page}`)
       setLoading(false)
       setProducts([...products, ...data.products])
     } catch (error) {
@@ -150,11 +150,11 @@ const HomePage = () => {
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">{p.description.substring(0, 30)}...</p>
                   <p className="card-text">$ {p.price}</p>
-                  <button className="btn btn-primary ms-1" onClick={()=>navigate(`/product/${p.slug}`)}>More Details</button>
-                  <button className="btn btn-secondary ms-1" 
-                  onClick={()=>{
-                    setCart([...cart,p])
-                    localStorage.setItem('cart', JSON.stringify({...cart,p}))
+                  <button className="btn btn-primary ms-1" onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
+                  <button className="btn btn-secondary ms-1"
+                    onClick={() => {
+                      setCart([...cart, p])
+                      localStorage.setItem('cart', JSON.stringify({ ...cart, p }))
                       toast.success('item added to cart')
                     }}>Add To Cart</button>
                 </div>

@@ -90,15 +90,15 @@ const CartPage = () => {
 
 
                                 </div>
-                                
+
                             </>
                         ) : (
                             <div className='mb-3'>
                                 {auth?.token ? (
                                     <button className='btn btn-outline-warning' onClick={() => navigate('/dashboard/user/profile')}>Update Address</button>
                                 ) : (
-                                    <button className='btn btn-outline-warning' onClick={() => navigate('/login',{
-                                        state:'/cart',
+                                    <button className='btn btn-outline-warning' onClick={() => navigate('/login', {
+                                        state: '/cart',
                                     })}>Please Login To Checkout</button>
                                 )}
                             </div>
