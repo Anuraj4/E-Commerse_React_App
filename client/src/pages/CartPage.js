@@ -4,10 +4,12 @@ import { useCart } from '../context/cart'
 import { useAuth } from '../context/auth'
 import { useNavigate } from 'react-router-dom'
 
+
 const CartPage = () => {
     const [auth, setAuth] = useAuth();
     const [cart, setCart] = useCart();
     const navigate = useNavigate()
+
 
     //Total price
     const totalPrice = () => {
