@@ -5,12 +5,13 @@ import toast from 'react-hot-toast';
 import SearchInput from '../Form/SearchInput';
 import useCategory from '../../hooks/useCategory';
 import { useCart } from '../../context/cart';
-import { Badge } from 'antd'
+import { Badge } from 'antd';
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
-  const [cart] = useCart()
+  const [cart] = useCart();
   const categories = useCategory();
+
   const handleLogout = () => {
     setAuth({
       ...auth, user: null, token: ''
@@ -23,7 +24,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand">🛍️ E-Commerce App</Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -43,7 +44,7 @@ const Header = () => {
                   </Link>
                 </li>
                 {categories?.map((c) => (
-                  <li>
+                  <li key={c._id}>
                     <Link className="dropdown-item" to={`/category/${c.slug}`}>
                       {c.name}
                     </Link>
@@ -73,7 +74,7 @@ const Header = () => {
                 </li>
               </>
             )}
-            <li className="nav-item" style={{ marginRight: '10px',marginTop:'5px'}}>
+            <li className="nav-item" style={{ marginRight: '10px', marginTop: '5px' }}>
               <Badge count={cart?.length} showZero>
                 <NavLink to="/cart" className="nav-link">Cart</NavLink>
               </Badge>
