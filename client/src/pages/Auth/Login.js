@@ -10,22 +10,29 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const [auth, setAuth] = useAuth()
-    const location = useLocation()
+    const [auth, setAuth] = useAuth();
+    const location = useLocation();
+    const [isToastShown, setIsToastShown] = useState(false); // To track if toast has been shown
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
             const res = await axios.post('/api/v1/auth/login', { email, password });
             if (res && res.data.success) {
-                toast.success(res.data && res.data.message);
-                setAuth({
+                // Show success message only if it hasn't been shown
+                if (!isToastShown) {
+                    toast.success('Login Successful');
+                    setIsToastShown(true); // Set flag to true so toast doesn't show twice
+                } setAuth({
                     ...auth,
                     user: res.data.user,
                     token: res.data.token,
                 })
                 localStorage.setItem('auth', JSON.stringify(res.data));
-                navigate(location.state || '/');
+                // Delay the navigation to allow the toast to show
+                setTimeout(() => {
+                    navigate(location.state || '/');
+                }, 1000);
             } else {
                 toast.error(res.data.message)
             }
