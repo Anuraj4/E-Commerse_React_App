@@ -73,7 +73,7 @@ const Header = () => {
                 </li>
               </>
             )}
-            <li className="nav-item">
+            <li className="nav-item" style={{ marginRight: '10px',marginTop:'5px'}}>
               <Badge count={cart?.length} showZero>
                 <NavLink to="/cart" className="nav-link">Cart</NavLink>
               </Badge>
