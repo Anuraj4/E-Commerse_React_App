@@ -48,7 +48,7 @@ const ProductDetails = () => {
                     <button className='btn btn-secondary ms-1'>Add To Cart</button>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div className='row container'>
                 <h6>Similar Products</h6>
                 {relatedProducts.length < 1 && (<p className='text-center'>No similar product found</p>)}
