@@ -7,14 +7,11 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import cors from 'cors';
 import productRoutes from './routes/productRoutes.js';
 import colors from 'colors';
-
-
 // configure env
 dotenv.config();
 
 // databse config
 connectDB();
-
 
 // rest object
 const app = express();
