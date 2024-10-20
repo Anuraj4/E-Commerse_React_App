@@ -7,8 +7,7 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import cors from 'cors';
 import productRoutes from './routes/productRoutes.js';
 import colors from 'colors';
-import { fileURLToPath } from 'url';
-import path from 'path';
+
 
 // configure env
 dotenv.config();
@@ -16,9 +15,6 @@ dotenv.config();
 // databse config
 connectDB();
 
-// esmodule
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.__dirname(__filename);
 
 // rest object
 const app = express();
@@ -27,7 +23,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, './client/build')));
 
 // routes
 app.use('/api/v1/auth', authRoutes);
