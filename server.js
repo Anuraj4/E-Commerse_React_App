@@ -8,6 +8,7 @@ import cors from 'cors';
 import productRoutes from './routes/productRoutes.js';
 import colors from 'colors';
 
+
 // configure env
 dotenv.config();
 
