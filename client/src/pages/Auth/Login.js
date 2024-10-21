@@ -17,7 +17,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post('/api/v1/auth/login', { email, password });
+            const res = await axios.post('https://backend-adkt.onrender.com/api/v1/auth/login', { email, password });
             if (res && res.data.success) {
                 // Show success message only if it hasn't been shown
                 if (!isToastShown) {

@@ -59,7 +59,7 @@ const CartPage = () => {
                             cart?.map(p => (
                                 <div className='row mb-2 p-3 card flex-row'>
                                     <div className='col-md-4'>
-                                        <img className="card-img-top" src={`/api/v1/product/product-photo/${p._id}`} alt={p.name}
+                                        <img className="card-img-top" src={`https://backend-adkt.onrender.com/api/v1/product/product-photo/${p._id}`} alt={p.name}
                                             width='100px'
                                             height={'100px'} />
                                     </div>

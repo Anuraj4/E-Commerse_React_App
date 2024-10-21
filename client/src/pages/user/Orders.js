@@ -11,7 +11,7 @@ const Orders = () => {
     const [auth, setAuth] = useAuth()
     const getOrders = async () => {
         try {
-            const { data } = await axios.get('/api/v1/auth/orders')
+            const { data } = await axios.get('https://backend-adkt.onrender.com/api/v1/auth/orders')
             setOrders(data)
         } catch (error) {
             console.log(error)
@@ -61,7 +61,7 @@ const Orders = () => {
                                             o?.products?.map((p ,i)=> (
                                                 <div className='row mb-2 p-3 card flex-row'>
                                                     <div className='col-md-4'>
-                                                        <img className="card-img-top" src={`/api/v1/product/product-photo/${p._id}`} alt={p.name}
+                                                        <img className="card-img-top" src={`https://backend-adkt.onrender.com/api/v1/product/product-photo/${p._id}`} alt={p.name}
                                                             width='100px'
                                                             height={'100px'} />
                                                     </div>
