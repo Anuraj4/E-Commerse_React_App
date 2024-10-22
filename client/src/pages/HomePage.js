@@ -6,6 +6,7 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
@@ -17,63 +18,63 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  //get all cat
+  // Get all categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://backend-adkt.onrender.com/api/v1/category/get-category");
+      const { data } = await axios.get(
+        "https://backend-adkt.onrender.com/api/v1/category/get-category"
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
-  useEffect(() => {
-    getAllCategory();
-    getTotal();
-  }, []);
-  //get products
+  // Get all products
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`https://backend-adkt.onrender.com/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://backend-adkt.onrender.com/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
       setLoading(false);
-      console.log(error);
+      console.error(error);
     }
   };
 
-  //getTOtal COunt
+  // Get total product count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("https://backend-adkt.onrender.com/api/v1/product/product-count");
+      const { data } = await axios.get(
+        "https://backend-adkt.onrender.com/api/v1/product/product-count"
+      );
       setTotal(data?.total);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
-  useEffect(() => {
-    if (page === 1) return;
-    loadMore();
-  }, [page]);
-  //load more
+  // Load more products
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`https://backend-adkt.onrender.com/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://backend-adkt.onrender.com/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setLoading(false);
     }
   };
 
-  // filter by cat
+  // Filter products by category
   const handleFilter = (value, id) => {
     let all = [...checked];
     if (value) {
@@ -83,28 +84,46 @@ const HomePage = () => {
     }
     setChecked(all);
   };
-  useEffect(() => {
-    if (!checked.length || !radio.length) getAllProducts();
-  }, [checked.length, radio.length]);
 
-  useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
-  }, [checked, radio]);
-
-  //get filterd product
+  // Filter products by selected filters
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("https://backend-adkt.onrender.com/api/v1/product/product-filters", {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(
+        "https://backend-adkt.onrender.com/api/v1/product/product-filters",
+        {
+          checked,
+          radio,
+        }
+      );
       setProducts(data?.products);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
+
+  // UseEffect for initial loading
+  useEffect(() => {
+    getAllCategory();
+    getTotal();
+  }, []);
+
+  // Load products when page changes
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
+
+  // Update product list on filter change
+  useEffect(() => {
+    if (!checked.length && !radio.length) {
+      getAllProducts();
+    } else {
+      filterProduct();
+    }
+  }, [checked, radio]);
+
   return (
-    <Layout title={"ALl Products - Best offers "}>
+    <Layout title={"All Products - Best offers"}>
       <div className="container-fluid row mt-3">
         <div className="col-md-2">
           <h4 className="text-center mt-4">Filter By Category</h4>
@@ -118,7 +137,7 @@ const HomePage = () => {
               </Checkbox>
             ))}
           </div>
-          {/* price filter */}
+          {/* Price filter */}
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column p-2">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
@@ -132,7 +151,11 @@ const HomePage = () => {
           <div className="d-flex flex-column mt-4">
             <button
               className="btn btn-danger"
-              onClick={() => window.location.reload()}
+              onClick={() => {
+                setChecked([]);
+                setRadio([]);
+                getAllProducts();
+              }}
             >
               RESET FILTERS
             </button>
@@ -164,10 +187,7 @@ const HomePage = () => {
                     className="btn btn-secondary ms-1"
                     onClick={() => {
                       setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
+                      localStorage.setItem("cart", JSON.stringify([...cart, p]));
                       toast.success("Item Added to cart");
                     }}
                   >
@@ -186,7 +206,7 @@ const HomePage = () => {
                   setPage(page + 1);
                 }}
               >
-                {loading ? "Loading ..." : "Loadmore"}
+                {loading ? "Loading ..." : "Load more"}
               </button>
             )}
           </div>
