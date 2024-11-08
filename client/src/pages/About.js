@@ -12,15 +12,28 @@ const About = () => {
             style={{ width: "100%" }}
           />
         </div>
-        <div className="col-md-4">
-          <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+        <div className="col-md-6">
+          <h2 className="mt-3">Who We Are</h2>
+          <p className="text-justify mt-3">
+            Welcome to our e-commerce platform! We are committed to providing the best
+            shopping experience for our customers, with a wide range of products, 
+            competitive prices, and exceptional customer service. Our goal is to make 
+            online shopping easy, enjoyable, and accessible for everyone.
           </p>
+          <h3 className="mt-4">Our Mission</h3>
+          <p className="text-justify mt-3">
+            Our mission is to deliver quality products while ensuring customer satisfaction 
+            every step of the way. We work with trusted vendors and suppliers to bring you 
+            the latest products across various categories, from fashion and electronics to 
+            home essentials.
+          </p>
+          <h3 className="mt-4">Why Choose Us</h3>
+          <ul className="mt-3">
+            <li>Wide range of products to cater to all your needs.</li>
+            <li>Secure payment options for a worry-free shopping experience.</li>
+            <li>Fast and reliable shipping to get your products to you quickly.</li>
+            <li>Exceptional customer service available to assist you at any time.</li>
+          </ul>
         </div>
       </div>
     </Layout>
