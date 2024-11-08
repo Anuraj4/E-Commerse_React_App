@@ -13,13 +13,9 @@ const Policy = () => {
           />
         </div>
         <div className="col-md-4">
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
+          <p><strong>1. Information Collection:</strong> We collect your name, email, address, and payment info for orders and service improvement.</p>
+          <p><strong>2. Use of Information:</strong> Your data helps us process orders, communicate with you, and improve services.</p>
+          <p><strong>3. Sharing Information:</strong> We don’t sell your info. Trusted partners may access it only for payments, orders, or marketing under confidentiality.</p>
         </div>
       </div>
     </Layout>
