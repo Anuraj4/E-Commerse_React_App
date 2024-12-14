@@ -5,7 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-html, body{
+
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -110,15 +112,153 @@ html, body{
 /* Register page 
  */
 
- .register{
+.register {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 70vh;
   flex-direction: column;
- }
+}
 
- .product-link{
+.product-link {
   text-decoration: none !important;
   color: black !important;
- }
+}
+
+/* Center and style the Spin Wheel container */
+.spin-wheel-container {
+  display: flex;
+  flex-direction: row; /* Arrange spin wheel and heading side by side */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Adjust width to fit both spin wheel and heading */
+  position: relative;
+}
+.heading {
+  margin-left: 20px; /* Add space between the spin wheel and heading */
+  text-align: left; /* Align text properly */
+}
+.heading h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+/* Styling for the wheel */
+.wheel {
+  position: relative;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid #ddd;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(0deg);
+  transition: transform 5s ease-out;
+}
+
+.wheel.spinning {
+  transform: rotate(calc(360deg * 5 + 1080deg));
+  /* Smooth spinning effect */
+}
+
+/* Segment styling */
+.segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+  text-align: center;
+  line-height: 140%;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+
+.segment:nth-child(1) {
+  background: #f39c12;
+  transform: rotate(0deg);
+}
+
+.segment:nth-child(2) {
+  background: #e74c3c;
+  transform: rotate(60deg);
+}
+
+.segment:nth-child(3) {
+  background: #8e44ad;
+  transform: rotate(120deg);
+}
+
+.segment:nth-child(4) {
+  background: #27ae60;
+  transform: rotate(180deg);
+}
+
+.segment:nth-child(5) {
+  background: #2980b9;
+  transform: rotate(240deg);
+}
+
+.segment:nth-child(6) {
+  background: #f1c40f;
+  transform: rotate(300deg);
+}
+
+/* Button styling */
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* Result message styling */
+.result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .wheel {
+    width: 250px;
+    height: 250px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .result {
+    font-size: 16px;
+  }
+}
