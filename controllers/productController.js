@@ -160,7 +160,7 @@ export const updateProductController = async (req, res) => {
 // Filter product
 export const productFilterController = async (req, res) => {
   try {
-    const { checked, radio } = req.body;
+    const { checked = [], radio = [] } = req.body; // Provide default empty arrays to prevent errors
     const args = {};
     if (checked.length > 0) args.category = checked;
     if (radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
@@ -172,8 +172,8 @@ export const productFilterController = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).send({
-      success: true,
-      message: 'Error while filtering product',
+      success: false, // Corrected
+      message: 'Error while filtering products',
       error
     });
   }
